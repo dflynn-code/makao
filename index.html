@@ -1,374 +1,510 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Makao Confiserie – Premium Classic Cookies</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Georgia', serif;
-            line-height: 1.7;
-            color: #4B2E2B;
-            background: #F3EBDD;
-        }
-
-        /* ========== NAVIGATION ========== */
-        nav {
-            background: #4B2E2B;
-            padding: 0 40px;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 70px;
-        }
-        .logo {
-            font-size: 1.6rem;
-            font-weight: bold;
-            color: #F3EBDD;
-            letter-spacing: 2px;
-        }
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 40px;
-        }
-        nav a {
-            color: #F3EBDD;
-            text-decoration: none;
-            font-size: 1rem;
-            padding: 10px 0;
-            border-bottom: 2px solid transparent;
-            transition: all 0.3s;
-        }
-        nav a:hover {
-            border-bottom-color: #8FAF9A;
-        }
-
-        /* ========== HERO ========== */
-        .hero {
-            background: linear-gradient(135deg, #4B2E2B 0%, #6B4443 100%);
-            color: #F3EBDD;
-            padding: 100px 20px;
-            text-align: center;
-        }
-        .hero h1 {
-            font-size: 3.2rem;
-            margin-bottom: 15px;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-        }
-        .hero .tagline {
-            font-size: 1.3rem;
-            font-style: italic;
-            color: #8FAF9A;
-            margin-bottom: 40px;
-        }
-        .hero-btn {
-            display: inline-block;
-            background: #8FAF9A;
-            color: #4B2E2B;
-            padding: 16px 45px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1rem;
-            border-radius: 4px;
-            transition: all 0.3s;
-        }
-        .hero-btn:hover {
-            background: #F3EBDD;
-        }
-
-        /* ========== KAPITEL-NAVIGATION (Schnellzugriff) ========== */
-        .chapter-nav {
-            background: white;
-            padding: 20px;
-            text-align: center;
-            border-bottom: 1px solid #e0d6c8;
-        }
-        .chapter-nav span {
-            color: #6B4443;
-            margin-right: 10px;
-        }
-        .chapter-nav a {
-            color: #4B2E2B;
-            text-decoration: none;
-            padding: 8px 20px;
-            margin: 5px;
-            border: 1px solid #4B2E2B;
-            border-radius: 3px;
-            display: inline-block;
-            transition: all 0.3s;
-        }
-        .chapter-nav a:hover {
-            background: #4B2E2B;
-            color: #F3EBDD;
-        }
-
-        /* ========== SECTIONS ========== */
-        section {
-            padding: 80px 20px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        section h2 {
-            font-size: 2rem;
-            color: #4B2E2B;
-            margin-bottom: 40px;
-            text-align: center;
-        }
-        section h2::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 3px;
-            background: #8FAF9A;
-            margin: 15px auto 0;
-        }
-
-        /* ========== KAPITEL 1: ÜBER UNS ========== */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-        }
-        .about-text h3 {
-            font-size: 1.4rem;
-            color: #4B2E2B;
-            margin-bottom: 15px;
-        }
-        .about-text p {
-            margin-bottom: 20px;
-            font-size: 1.05rem;
-            color: #5a3d3a;
-        }
-
-        /* Bild-Platzhalter */
-        .image-placeholder {
-            background: linear-gradient(135deg, #4B2E2B 0%, #6B4443 100%);
-            height: 350px;
-            border-radius: 8px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: #F3EBDD;
-            border: 3px dashed #8FAF9A;
-        }
-        .image-placeholder .label {
-            font-size: 1.1rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        .image-placeholder .hint {
-            font-size: 0.85rem;
-            opacity: 0.7;
-        }
-
-        /* Qualitätsmerkmale */
-        .quality-list {
-            margin-top: 50px;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 25px;
-        }
-        .quality-item {
-            background: white;
-            padding: 25px 15px;
-            border-radius: 8px;
-            text-align: center;
-            border-left: 4px solid #8FAF9A;
-        }
-        .quality-item h4 {
-            color: #4B2E2B;
-            font-size: 1rem;
-            margin-bottom: 8px;
-        }
-        .quality-item p {
-            color: #6B4443;
-            font-size: 0.9rem;
-        }
-
-        /* ========== KAPITEL 2: PRODUKTE ========== */
-        .products-section {
-            background: white;
-            padding: 80px 20px;
-        }
-        .products-section section {
-            padding: 0;
-        }
-        .product-highlight {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-            margin-bottom: 60px;
-        }
-        .product-highlight.reverse {
-            direction: rtl;
-        }
-        .product-highlight.reverse > * {
-            direction: ltr;
-        }
-        .product-info h3 {
-            font-size: 1.5rem;
-            color: #4B2E2B;
-            margin-bottom: 15px;
-        }
-        .product-info p {
-            color: #5a3d3a;
-            margin-bottom: 15px;
-        }
-        .product-info .price {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: #8FAF9A;
-        }
-
-        /* Preistabelle */
-        .price-table {
-            background: #F3EBDD;
-            border-radius: 8px;
-            padding: 40px;
-            margin-top: 40px;
-        }
-        .price-table h3 {
-            text-align: center;
-            margin-bottom: 30px;
-            color: #4B2E2B;
-        }
-        .price-table table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        .price-table th,
-        .price-table td {
-            padding: 15px 20px;
-            text-align: left;
-            border-bottom: 1px solid #d4c9b9;
-        }
-        .price-table th {
-            background: #4B2E2B;
-            color: #F3EBDD;
-        }
-        .price-table tr:hover {
-            background: white;
-        }
-
-        /* ========== KAPITEL 3: KONTAKT ========== */
-        .contact-section {
-            background: #4B2E2B;
-            padding: 80px 20px;
-        }
-        .contact-section h2 {
-            color: #F3EBDD;
-        }
-        .contact-section h2::after {
-            background: #8FAF9A;
-        }
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .contact-card {
-            background: #F3EBDD;
-            padding: 40px;
-            border-radius: 8px;
-            text-align: center;
-        }
-        .contact-card h3 {
-            color: #4B2E2B;
-            margin-bottom: 15px;
-            font-size: 1.2rem;
-        }
-        .contact-card p {
-            color: #5a3d3a;
-            margin-bottom: 10px;
-        }
-        .contact-card a {
-            color: #4B2E2B;
-            font-weight: bold;
-            text-decoration: none;
-            font-size: 1.1rem;
-        }
-        .contact-card a:hover {
-            color: #8FAF9A;
-        }
-        .contact-info-text {
-            color: #F3EBDD;
-            text-align: center;
-            margin-top: 40px;
-            font-size: 1rem;
-        }
-        .contact-info-text p {
-            margin-bottom: 10px;
-        }
-
-        /* ========== FOOTER ========== */
-        footer {
-            background: #3a2220;
-            color: #F3EBDD;
-            text-align: center;
-            padding: 30px 20px;
-        }
-        footer p {
-            opacity: 0.8;
-            font-size: 0.9rem;
-        }
-
-        /* ========== RESPONSIVE ========== */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
-            .about-grid,
-            .product-highlight,
-            .contact-grid { grid-template-columns: 1fr; }
-            .product-highlight.reverse { direction: ltr; }
-            .quality-list { grid-template-columns: 1fr 1fr; }
-            nav { 
-                flex-direction: column; 
-                height: auto;
-                padding: 15px;
-                gap: 15px;
-            }
-            nav ul { gap: 20px; flex-wrap: wrap; justify-content: center; }
-            .chapter-nav a { display: block; margin: 5px 0; }
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Makao Confiserie – Projektübersicht (Bausteinprüfung 2026)</title>
+  <style>
+    :root{
+      --bg:#0b0f14;
+      --card:#111824;
+      --muted:#9fb0c3;
+      --text:#e9f0f8;
+      --accent:#e7b86a; /* warm/premium */
+      --accent2:#7dd3fc; /* info */
+      --line:#223043;
+      --ok:#22c55e;
+      --todo:#f59e0b;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      background: radial-gradient(1200px 800px at 20% -10%, rgba(231,184,106,.18), transparent 55%),
+                  radial-gradient(900px 700px at 90% 10%, rgba(125,211,252,.12), transparent 60%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.5;
+    }
+    a{color:var(--accent2); text-decoration:none}
+    a:hover{text-decoration:underline}
+    header{
+      padding:56px 20px 28px;
+      border-bottom:1px solid var(--line);
+    }
+    .wrap{max-width:1080px; margin:0 auto}
+    .kicker{
+      display:inline-flex; gap:10px; align-items:center;
+      color:var(--muted); font-weight:600; letter-spacing:.02em;
+    }
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:6px 10px; border-radius:999px;
+      background:rgba(231,184,106,.12);
+      border:1px solid rgba(231,184,106,.22);
+      color:#ffdca4;
+      font-size:12px;
+    }
+    h1{margin:14px 0 10px; font-size:34px; line-height:1.15}
+    .sub{max-width:900px; color:var(--muted); font-size:16px}
+    nav{
+      display:flex; flex-wrap:wrap; gap:10px;
+      margin-top:22px;
+    }
+    nav a{
+      padding:10px 12px;
+      border:1px solid var(--line);
+      border-radius:12px;
+      background:rgba(17,24,36,.6);
+      font-weight:600;
+      color:var(--text);
+    }
+    nav a:hover{border-color:rgba(231,184,106,.55)}
+    main{padding:26px 20px 70px}
+    section{margin:18px 0 28px}
+    .grid{
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap:14px;
+    }
+    @media (max-width: 920px){
+      .grid{grid-template-columns:1fr}
+    }
+    .card{
+      background:linear-gradient(180deg, rgba(17,24,36,.88), rgba(17,24,36,.72));
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:18px;
+      box-shadow: 0 10px 40px rgba(0,0,0,.22);
+    }
+    .card h2{margin:0 0 10px; font-size:18px}
+    .card h3{margin:16px 0 8px; font-size:15px; color:#d7e5f6}
+    .muted{color:var(--muted)}
+    .list{margin:10px 0 0; padding-left:18px}
+    .list li{margin:6px 0}
+    .callout{
+      border:1px dashed rgba(125,211,252,.45);
+      background:rgba(125,211,252,.07);
+      padding:12px 14px;
+      border-radius:14px;
+      color:#d7f2ff;
+      margin-top:12px;
+    }
+    .tag{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(0,0,0,.10);
+      color:var(--muted);
+      font-size:12px;
+      margin:4px 6px 0 0;
+    }
+    table{
+      width:100%;
+      border-collapse:separate;
+      border-spacing:0;
+      overflow:hidden;
+      border:1px solid var(--line);
+      border-radius:16px;
+      background:rgba(17,24,36,.55);
+    }
+    th, td{
+      padding:12px 12px;
+      border-bottom:1px solid var(--line);
+      vertical-align:top;
+      font-size:14px;
+    }
+    th{color:#d7e5f6; text-align:left; background:rgba(255,255,255,.03)}
+    tr:last-child td{border-bottom:none}
+    .status{
+      font-weight:700;
+      display:inline-flex; align-items:center; gap:8px;
+      padding:6px 10px; border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(0,0,0,.10);
+      font-size:12px;
+    }
+    .ok{color:var(--ok); border-color:rgba(34,197,94,.35); background:rgba(34,197,94,.08)}
+    .todo{color:#ffdca4; border-color:rgba(245,158,11,.35); background:rgba(245,158,11,.08)}
+    .cols{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+    }
+    @media (max-width: 720px){
+      .cols{grid-template-columns:1fr}
+    }
+    .footer{
+      padding:22px 20px 40px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+    }
+    .hr{height:1px; background:var(--line); margin:14px 0}
+    .small{font-size:12px; color:var(--muted)}
+    .placeholder{
+      border:1px dashed rgba(231,184,106,.45);
+      background:rgba(231,184,106,.06);
+      padding:14px;
+      border-radius:14px;
+      color:#ffdca4;
+    }
+    code.inline{
+      background:rgba(0,0,0,.25);
+      border:1px solid var(--line);
+      padding:2px 6px;
+      border-radius:8px;
+      color:#d7e5f6;
+    }
+  </style>
 </head>
+
 <body>
+  <header>
+    <div class="wrap">
+      <div class="kicker">
+        <span class="pill">Bausteinprüfung 2026</span>
+        <span class="muted">Makao Confiserie</span>
+      </div>
 
-    <!-- Navigation -->
-    <nav>
-        <div class="logo">MAKAO CONFISERIE</div>
-        <ul>
-            <li><a href="#ueber-uns">Über uns</a></li>
-            <li><a href="#produkte">Produkte</a></li>
-            <li><a href="#kontakt">Kontakt</a></li>
-        </ul>
-    </nav>
+      <h1>Projektseite: Planung, Marktanalyse & n8n-Workflow</h1>
+      <p class="sub">
+        Diese Seite bündelt alle prüfungsrelevanten Artefakte in einer einzigen, klaren Übersicht:
+        <strong>Projektplanung</strong>, <strong>Wettbewerbsanalyse</strong>, sowie <strong>n8n Anfrageformular + E-Mail-Routing</strong>.
+        Inhalte orientieren sich an den Aufgabenpaketen und Deadlines aus den Projektunterlagen.
+      </p>
 
-    <!-- Hero -->
-    <header class="hero">
-        <h1>Makao Confiserie</h1>
-        <p class="tagline">der Geschmack gewinnt immer</p>
-        <a href="#produkte" class="hero-btn">Jetzt entdecken</a>
-    </header>
-
-    <!-- Schnellzugriff -->
-    <div class="chapter-nav">
-        <span>Direkt zu:</span>
-        <a href="#ueber-uns">1. Über uns</a>
-        <a href="#produkte">2. Produkte</a>
-        <a href="#kontakt">3. Kontakt</a>
+      <nav aria-label="Inhaltsverzeichnis">
+        <a href="#ueberblick">Überblick</a>
+        <a href="#ki">KI-Einsatz & Briefing</a>
+        <a href="#projektplan">Projektplan</a>
+        <a href="#n8n">n8n Formular & Workflow</a>
+        <a href="#wettbewerb">Wettbewerbsanalyse</a>
+        <a href="#artefakte">Artefakte & Downloads</a>
+      </nav>
     </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+
+      <!-- ÜBERBLICK -->
+      <section id="ueberblick" class="grid">
+        <div class="card">
+          <h2>Überblick</h2>
+          <p class="muted">
+            Ziel ist eine prüfungskonforme Dokumentation mit nachvollziehbarer Struktur:
+            <strong>Analyse → CI-Elemente → Werbemittel → Formularlogik → Qualitätsprüfung</strong>.
+          </p>
+
+          <div class="hr"></div>
+
+          <h3>Scope (kurz)</h3>
+          <ul class="list">
+            <li><strong>Marktrecherche / Wettbewerbsvergleich</strong> im Premium-Cookie-D2C-Segment (DE)</li>
+            <li><strong>Projektplanung</strong> mit Aufgaben, Deadlines, Status, Links</li>
+            <li><strong>n8n</strong>: Anfrageformular + Routing per E-Mail an zwei Abteilungen</li>
+            <li>Dokumentation der Ergebnisse (Screenshots/Links) auf einer Landingpage</li>
+          </ul>
+
+          <div class="callout">
+            <strong>Hinweis:</strong> Tool-Wahl ist zweitrangig – wichtig ist saubere Dokumentation und verlinkte Artefakte
+            (z. B. Workflow-Screenshot, Testnachweis, Projektplan). (siehe KI-Projekt-Auszug)
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Rahmenbedingungen</h2>
+          <p class="muted">Empfohlene Umsetzung: statische Seite (HTML/CSS/JS) – ideal für GitHub Pages.</p>
+
+          <div class="hr"></div>
+
+          <h3>Warum „eine HTML-Seite“?</h3>
+          <ul class="list">
+            <li>Alles an einem Ort: schnell prüfbar</li>
+            <li>Versionierbar im Repo</li>
+            <li>Einfach erweiterbar um Screenshots/Links</li>
+          </ul>
+
+          <div>
+            <span class="tag">GitHub Pages geeignet</span>
+            <span class="tag">Statisch & nachvollziehbar</span>
+            <span class="tag">Artefakte verlinkbar</span>
+          </div>
+
+          <div class="hr"></div>
+
+          <div class="placeholder">
+            <strong>Platzhalter:</strong> Hier könnt ihr später ein „Hero“-Bild (Makao Key Visual / Logo) einfügen.
+            <div class="small">Tipp: als <code class="inline">/assets/hero.jpg</code> ablegen und hier per <code class="inline">&lt;img&gt;</code> einbinden.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- KI -->
+      <section id="ki" class="grid">
+        <div class="card">
+          <h2>KI-Einsatz & Briefing (was die KI liefern soll)</h2>
+          <p class="muted">
+            Damit KI sinnvolle Outputs generiert, braucht sie ein kurzes, klares Briefing (Ziel, Kontext, Constraints, Beispiele).
+            Das entspricht dem empfohlenen Vorgehen aus dem KI-Projekt-Auszug.
+          </p>
+
+          <h3>Empfohlenes Prompt-Format</h3>
+          <ul class="list">
+            <li><strong>Ziel:</strong> z. B. Website-Text, Seitenstruktur, Formular-Workflow, Projektplan</li>
+            <li><strong>Kontext:</strong> Für wen ist es? (Kunde/Abteilung/Kursprüfung)</li>
+            <li><strong>Constraints:</strong> Pflichtfelder, Sprache, Tonalität, Format, Spalten</li>
+            <li><strong>Beispiele:</strong> 1–2 kurze Muster (optional)</li>
+          </ul>
+
+          <div class="callout">
+            <strong>Praxis:</strong> Wir nutzen KI primär für Struktur, Textbausteine und saubere Zusammenfassungen – und dokumentieren die Ergebnisse.
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Kursanforderungen (relevant)</h2>
+          <ul class="list">
+            <li><strong>Bausteinprüfung n8n:</strong> Anfrageformular + E-Mail-Weiterleitung an zwei Abteilungen (Routing-Regeln)</li>
+            <li><strong>Projektmanagement:</strong> Projektplan-Übersicht mit Spalten <em>Aufgabe, Deadline, Status, Links</em></li>
+            <li><strong>Website:</strong> Artefakte/Ergebnisse verlinken (Workflow, Projektplan, ggf. Transkript-Auszug)</li>
+          </ul>
+
+          <div class="hr"></div>
+          <div class="placeholder">
+            <strong>Platzhalter:</strong> „KI-Outputs“ (z. B. Prompt + Ergebnis-Snippet) könnt ihr hier später als Screenshot oder Text-Accordion ergänzen.
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJEKTPLAN -->
+      <section id="projektplan" class="card">
+        <h2>Projektplan (Aufgaben · Deadlines · Status · Links)</h2>
+        <p class="muted">
+          Die Reihenfolge folgt der geplanten Ablauf-Logik: <strong>Inhalt vor Design</strong>, <strong>CI vor Werbemitteln</strong>,
+          <strong>Formularlogik nach Content</strong>, danach <strong>Finaler Review</strong>.
+        </p>
+
+        <table aria-label="Projektplan Tabelle">
+          <thead>
+            <tr>
+              <th style="width:24%">Aufgabe</th>
+              <th>Beschreibung</th>
+              <th style="width:14%">Deadline</th>
+              <th style="width:12%">Status</th>
+              <th style="width:20%">Links / Nachweise</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Marktrecherche (3 Wettbewerber)</strong></td>
+              <td>Vergleich relevanter Anbieter im Premium-Cookie-D2C-Segment (DE, Onlinehandel, Geschenkformate)</td>
+              <td>31.01.2026</td>
+              <td><span class="status ok">✅ abgeschlossen</span></td>
+              <td><a href="#wettbewerb">Zur Wettbewerbsanalyse</a></td>
+            </tr>
+            <tr>
+              <td><strong>Farbkonzept auswählen</strong></td>
+              <td>Primär-/Sekundär-/Akzentfarbe gemäß Vorgabe „premium, clean, warm“</td>
+              <td>02.02.2026</td>
+              <td><span class="status todo">⏳ geplant</span></td>
+              <td class="muted">Link zu CI-Dokument / Palette</td>
+            </tr>
+            <tr>
+              <td><strong>Logo-Entwurf (V1)</strong></td>
+              <td>Logo inkl. Slogan („der Geschmack gewinnt immer“) als Basis für alle Medien</td>
+              <td>04.02.2026</td>
+              <td><span class="status todo">⏳ geplant</span></td>
+              <td class="muted">Link zu Logo-Dateien</td>
+            </tr>
+            <tr>
+              <td><strong>Werbebild (V1)</strong></td>
+              <td>Key Visual mit Logo + Farbkonzept</td>
+              <td>06.02.2026</td>
+              <td><span class="status todo">⏳ geplant</span></td>
+              <td class="muted">Screenshot/Export</td>
+            </tr>
+            <tr>
+              <td><strong>Werbevideo (V1)</strong></td>
+              <td>Mind. zwei Sequenzen (Produkt/Marke/Anwendungskontext)</td>
+              <td>07.02.2026</td>
+              <td><span class="status todo">⏳ geplant</span></td>
+              <td class="muted">Link/Embed (MP4)</td>
+            </tr>
+            <tr>
+              <td><strong>n8n Anfrageformular (Konzept)</strong></td>
+              <td>Formularstruktur inkl. Pflichtfelder + Abteilungszuordnung</td>
+              <td>08.02.2026</td>
+              <td><span class="status todo">⏳ geplant</span></td>
+              <td><a href="#n8n">Zum n8n Abschnitt</a></td>
+            </tr>
+            <tr>
+              <td><strong>n8n Workflow (Umsetzung)</strong></td>
+              <td>Automatisiertes Routing per E-Mail an <em>Vertrieb</em> und <em>Service</em> abhängig vom Formular</td>
+              <td>08.02.2026</td>
+              <td><span class="status todo">⏳ geplant</span></td>
+              <td class="muted">Workflow-Screenshot + Test-Run</td>
+            </tr>
+            <tr>
+              <td><strong>Interne Prüfung & Feinschliff</strong></td>
+              <td>Konsistenz, Layout, Datenqualität, Quellen/Belege, finale Prüfung</td>
+              <td>08.02.2026</td>
+              <td><span class="status todo">⏳ geplant</span></td>
+              <td class="muted">Checklist / Final-OK</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p class="small" style="margin-top:10px;">
+          Grundlage: Projektplanung Bausteinprüfung 2026 (Aufgaben/Deadlines/Status). (siehe Projektplanung-Dokument)
+        </p>
+      </section>
+
+      <!-- N8N -->
+      <section id="n8n" class="grid">
+        <div class="card">
+          <h2>n8n Anfrageformular (Pflichtfelder & Routing)</h2>
+          <p class="muted">
+            Ziel: Ein Formular, das eingehende Anfragen abhängig von Auswahl/Keywords an zwei Abteilungen per E-Mail weiterleitet.
+          </p>
+
+          <h3>Empfohlene Felder</h3>
+          <ul class="list">
+            <li><strong>Name*</strong></li>
+            <li><strong>E-Mail*</strong></li>
+            <li><strong>Betreff*</strong></li>
+            <li><strong>Nachricht*</strong></li>
+            <li><strong>Abteilung/Anfragetyp*</strong> (z. B. Vertrieb / Service)</li>
+          </ul>
+
+          <h3>Routing-Regel (Beispiel)</h3>
+          <ul class="list">
+            <li>Wenn <em>Abteilung = Vertrieb</em> → Mail an Vertrieb</li>
+            <li>Wenn <em>Abteilung = Service</em> → Mail an Service</li>
+            <li>Optional: Keyword-Fallback (z. B. „Reklamation“, „Lieferung“ → Service)</li>
+          </ul>
+
+          <div class="placeholder">
+            <strong>Platzhalter:</strong> Screenshot Formular (n8n) hier einfügen.
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>n8n Workflow (E-Mail-Weiterleitung)</h2>
+          <p class="muted">
+            Dokumentationsanforderung: Screenshot(s) des Workflows + Testnachweis (Test-Run).
+          </p>
+
+          <h3>Minimaler Workflow-Aufbau</h3>
+          <ul class="list">
+            <li>Trigger: Form Submit / Webhook / Form Node</li>
+            <li>Validation: Pflichtfelder geprüft</li>
+            <li>Switch/IF: Abteilung oder Keywords</li>
+            <li>Send Email: Vertrieb</li>
+            <li>Send Email: Service</li>
+            <li>(Optional) Log/Success Response</li>
+          </ul>
+
+          <div class="callout">
+            <strong>Testnachweis:</strong> 2 Beispielanfragen absenden (je Abteilung eine) + Screenshot vom erfolgreichen Run.
+          </div>
+
+          <div class="placeholder">
+            <strong>Platzhalter:</strong> Screenshot Workflow (n8n) hier einfügen.
+          </div>
+        </div>
+      </section>
+
+      <!-- WETTBEWERB -->
+      <section id="wettbewerb" class="card">
+        <h2>Wettbewerbsanalyse (Premium-Cookies im Onlinehandel · DE)</h2>
+        <p class="muted">
+          Der Premium-Cookie-Markt im deutschen Onlinehandel wächst; typische Merkmale sind handgemachte Qualität,
+          starke Social-Media-Vermarktung, Geschenkboxen und hohe Stückpreise (≈ 3–5 € pro Cookie).
+        </p>
+
+        <div class="cols">
+          <div class="card" style="padding:14px;">
+            <h3 style="margin-top:0;">Kernaussagen (neutral)</h3>
+            <ul class="list">
+              <li><strong>D2C-Webshops</strong> sind der Hauptkanal; Versand oft frisch gebacken.</li>
+              <li><strong>Geschenk- und B2B-Formate</strong> sind verbreitet (Boxen, Branding, Events).</li>
+              <li><strong>Premium-Preisniveau</strong> ist marktüblich; Differenzierung über Qualität/USP/Story.</li>
+              <li><strong>Trends:</strong> vegan, bio, natürliche Zutaten – plus Limited Editions.</li>
+            </ul>
+          </div>
+
+          <div class="card" style="padding:14px;">
+            <h3 style="margin-top:0;">Korrekturen/Fehlercheck (prüfungsrelevant)</h3>
+            <ul class="list">
+              <li>Ungeeignete Wettbewerber vermeiden (z. B. kein D2C-Online-Boxenverkauf / falscher Markt).</li>
+              <li>Bei Anbietern Details komplett: stationäre Stores, B2B-Angebote, Box-Preise.</li>
+              <li>Preisspannen nicht nur Einzelcookie, sondern auch Mix-/Party-Boxen.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="hr"></div>
+
+        <h3>Ausgewählte Wettbewerber (Beispiele aus der Analyse)</h3>
+        <p class="muted">
+          In den Unterlagen werden u. a. Deichkeks, OOH! Cookies, MELT Cookies, Knusperreich, Cookie Chunkie und The Cookie Club als relevante Vergleichsmarken beschrieben.
+        </p>
+
+        <div class="callout">
+          <strong>Positionierungs-Impuls für Makao:</strong> „Ein Produkt, meisterhaft gemacht“ (Fokus auf 1 Sorte) kann als klares USP funktionieren –
+          muss aber stark über Qualität, Storytelling und Premium-Auftritt abgesichert werden.
+        </div>
+
+        <p class="small">
+          Grundlage: Wettbewerbsanalyse + Marktüberblick + Fehlerliste (Wettbewerber-Auswahl & Korrekturen).
+        </p>
+      </section>
+
+      <!-- ARTEFAKTE -->
+      <section id="artefakte" class="grid">
+        <div class="card">
+          <h2>Artefakte & Links</h2>
+          <ul class="list">
+            <li><strong>Projektplan</strong> (Tabelle) – hier auf der Seite + optional als PDF/Excel</li>
+            <li><strong>Wettbewerbsanalyse</strong> – PDF verlinken</li>
+            <li><strong>n8n Workflow</strong> – Screenshot + Test-Run Nachweis</li>
+            <li><strong>Werbemittel</strong> – Bild/Video Export</li>
+          </ul>
+
+          <div class="placeholder">
+            <strong>Platzhalter:</strong> Hier könnt ihr Buttons zu euren finalen Artefakten hinzufügen (z. B. /assets/workflow.png).
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Downloads (Projektunterlagen)</h2>
+          <p class="muted">
+            Wenn ihr die PDFs/DOCs mit ins Repo legt, könnt ihr sie hier direkt verlinken (z. B. unter <code class="inline">/docs/</code>).
+          </p>
+          <ul class="list">
+            <li><span class="muted">KI-Projekt-Auszug</span> (PDF)</li>
+            <li><span class="muted">Projektplanung Bausteinprüfung 2026</span> (PDF)</li>
+            <li><span class="muted">Wettbewerbsanalyse / Marktüberblick</span> (PDF/DOCX)</li>
+            <li><span class="muted">Fehlerliste (Qualitätssicherung)</span> (PDF)</li>
+          </ul>
+
+          <div class="callout">
+            <strong>Tipp:</strong> Lege Dateien im Repo z. B. so ab:
+            <span class="small"><br/>/docs/… &nbsp; /assets/… &nbsp; /index.html</span>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <div class="footer">
+    <div class="wrap">
+      <div><strong>Makao Confiserie – Projektseite</strong></div>
+      <div class="small">Stand: 29.01.2026 · Enthält: Planung, n8n-Logik, Markt-/Wettbewerbsanalyse, QS-Hinweise.</div>
+    </div>
+  </div>
+</body>
+</html>
