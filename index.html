@@ -1,97 +1,347 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Makao Confiserie – Projektübersicht</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #F3EBDD;
-      color: #2e2e2e;
-    }
-    header {
-      background-color: #4B2E2B;
-      color: white;
-      padding: 2rem;
-      text-align: center;
-    }
-    section {
-      padding: 2rem;
-      max-width: 800px;
-      margin: auto;
-    }
-    h2 {
-      color: #4B2E2B;
-    }
-    .accent {
-      color: #8FAF9A;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 1rem;
-    }
-    th, td {
-      border: 1px solid #ccc;
-      padding: 0.5rem;
-      text-align: left;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-      background-color: #f5f5f5;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Makao Confiserie – Premium Classic Cookies</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.7;
+            color: #4B2E2B;
+            background: #F3EBDD;
+        }
+        /* Navigation */
+        nav {
+            background: #4B2E2B;
+            padding: 15px 40px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #F3EBDD;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+        nav a {
+            color: #F3EBDD;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #8FAF9A;
+        }
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #4B2E2B 0%, #6B4443 100%);
+            color: #F3EBDD;
+            padding: 120px 20px;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+        }
+        .hero .tagline {
+            font-size: 1.4rem;
+            font-style: italic;
+            color: #8FAF9A;
+            margin-bottom: 40px;
+        }
+        .hero-btn {
+            display: inline-block;
+            background: #8FAF9A;
+            color: #4B2E2B;
+            padding: 15px 40px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 30px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .hero-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        /* Sections */
+        section {
+            padding: 80px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        section h2 {
+            font-size: 2.2rem;
+            color: #4B2E2B;
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+        }
+        section h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: #8FAF9A;
+            margin: 15px auto 0;
+        }
+        /* Über uns */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        .about-image {
+            background: #4B2E2B;
+            height: 350px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #F3EBDD;
+            font-size: 4rem;
+        }
+        /* Produkte */
+        .products {
+            background: white;
+            border-radius: 20px;
+            padding: 60px 40px;
+            margin: 0 20px;
+        }
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        .product-card {
+            background: #F3EBDD;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+        .product-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        .product-card h3 {
+            color: #4B2E2B;
+            margin-bottom: 10px;
+        }
+        .product-card p {
+            color: #6B4443;
+            font-size: 0.95rem;
+        }
+        .price {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #8FAF9A;
+            margin-top: 15px;
+        }
+        /* Qualität */
+        .quality {
+            background: #4B2E2B;
+            color: #F3EBDD;
+            border-radius: 20px;
+            padding: 60px 40px;
+            margin: 40px 20px;
+        }
+        .quality h2 {
+            color: #F3EBDD;
+        }
+        .quality h2::after {
+            background: #8FAF9A;
+        }
+        .quality-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+        .quality-item {
+            padding: 20px;
+        }
+        .quality-item span {
+            font-size: 2.5rem;
+            display: block;
+            margin-bottom: 15px;
+        }
+        .quality-item h4 {
+            color: #8FAF9A;
+            margin-bottom: 10px;
+        }
+        /* Kontakt */
+        .contact {
+            text-align: center;
+        }
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+        .contact-item {
+            background: white;
+            padding: 30px 40px;
+            border-radius: 15px;
+            min-width: 250px;
+        }
+        .contact-item span {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 15px;
+        }
+        .contact-item a {
+            color: #4B2E2B;
+            text-decoration: none;
+        }
+        .contact-item a:hover {
+            color: #8FAF9A;
+        }
+        /* Footer */
+        footer {
+            background: #4B2E2B;
+            color: #F3EBDD;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+        footer p {
+            opacity: 0.8;
+        }
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .about-content,
+            .products-grid { grid-template-columns: 1fr; }
+            .quality-grid { grid-template-columns: repeat(2, 1fr); }
+            nav { flex-direction: column; gap: 15px; }
+            nav ul { gap: 15px; }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Makao Confiserie – Projektübersicht</h1>
-    <p>Bausteinprüfung 2026 · WBS / 42 Berlin</p>
-  </header>
+    <nav>
+        <div class="logo">🍪 MAKAO</div>
+        <ul>
+            <li><a href="#about">Über uns</a></li>
+            <li><a href="#products">Produkte</a></li>
+            <li><a href="#quality">Qualität</a></li>
+            <li><a href="#contact">Kontakt</a></li>
+        </ul>
+    </nav>
 
-  <section>
-    <h2>Projektbeschreibung</h2>
-    <p>Makao Confiserie ist ein fiktives Premium-Cookie-Startup, entwickelt im Rahmen der Bausteinprüfung „KI-Anwendungsfelder“. Der Fokus liegt auf einem Classic Cookie im Geschenkformat, vertrieben über einen deutschen Online-Shop. Ziel des Projekts ist es, Design-Assets, Marktanalyse, ein Formularsystem und Werbemittel KI-gestützt zu erstellen.</p>
+    <header class="hero">
+        <h1>MAKAO CONFISERIE</h1>
+        <p class="tagline">der Geschmack gewinnt immer</p>
+        <a href="#products" class="hero-btn">Entdecke unsere Cookies</a>
+    </header>
 
-    <h2>Projektplanung</h2>
-    <table>
-      <tr>
-        <th>Aufgabe</th>
-        <th>Deadline</th>
-        <th>Status</th>
-      </tr>
-      <tr><td>Marktanalyse (3 Wettbewerber)</td><td>31.01.2026</td><td>✔ abgeschlossen</td></tr>
-      <tr><td>Farbkonzept definieren</td><td>02.02.2026</td><td>🕒 geplant</td></tr>
-      <tr><td>Logo-Entwurf V1</td><td>04.02.2026</td><td>🕒 geplant</td></tr>
-      <tr><td>Werbebild V1</td><td>06.02.2026</td><td>🕒 geplant</td></tr>
-      <tr><td>Werbevideo V1</td><td>07.02.2026</td><td>🕒 geplant</td></tr>
-      <tr><td>n8n Anfrageformular (Konzept)</td><td>08.02.2026</td><td>🕒 geplant</td></tr>
-      <tr><td>n8n Workflow (Umsetzung)</td><td>08.02.2026</td><td>🕒 geplant</td></tr>
-      <tr><td>Interner Feinschliff</td><td>08.02.2026</td><td>🕒 geplant</td></tr>
-    </table>
+    <section id="about">
+        <h2>Über uns</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p><strong>Makao Confiserie</strong> steht für handgefertigte Premium Classic Cookies – groß, weich und voller Geschmack nach amerikanischer Tradition.</p>
+                <p>Unsere Cookies werden frisch auf Bestellung zubereitet und in hochwertigen Geschenkboxen deutschlandweit versandt. Perfekt als Genuss für dich selbst oder als besonderes Geschenk für deine Liebsten.</p>
+                <p>Wir verwenden nur ausgewählte Zutaten höchster Qualität – denn bei uns gewinnt der Geschmack. Immer.</p>
+            </div>
+            <div class="about-image">🍪</div>
+        </div>
+    </section>
 
-    <h2>Wettbewerbsvergleich</h2>
-    <table>
-      <tr><th>Anbieter</th><th>Vertriebskanäle</th><th>Produktkategorien</th><th>Preisspanne</th></tr>
-      <tr><td>Deichkeks</td><td>D2C Online-Shop</td><td>Cookies, Geschenkboxen</td><td>ab 4,40 € / 6er Box: 25,90 €</td></tr>
-      <tr><td>Knusperreich</td><td>D2C Online-Shop</td><td>Bio-Cookies, Auswahlboxen</td><td>6er Dose: 13,90–15,10 €</td></tr>
-      <tr><td>MELT Cookies</td><td>D2C Online-Shop</td><td>Mix-Boxen, wechselnde Sorten</td><td>3er: 12,00 € / 6er: 22,00 €</td></tr>
-    </table>
+    <section id="products" class="products">
+        <h2>Unsere Produkte</h2>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-icon">🍫</div>
+                <h3>Classic Chocolate</h3>
+                <p>Zartschmelzende Schokoladenstückchen in perfekt gebackenem Teig.</p>
+                <div class="price">ab 4,00 €</div>
+            </div>
+            <div class="product-card">
+                <div class="product-icon">🎁</div>
+                <h3>6er Geschenkbox</h3>
+                <p>Sechs handverlesene Cookies in einer eleganten Geschenkverpackung.</p>
+                <div class="price">25,00 €</div>
+            </div>
+            <div class="product-card">
+                <div class="product-icon">✨</div>
+                <h3>Mix & Match</h3>
+                <p>Stelle deine eigene Box aus unseren verschiedenen Sorten zusammen.</p>
+                <div class="price">ab 25,00 €</div>
+            </div>
+        </div>
+    </section>
 
-    <h2 class="accent">CI-Farben</h2>
-    <ul>
-      <li>Primärfarbe: #4B2E2B (Kakao-Braun)</li>
-      <li>Sekundärfarbe: #F3EBDD (Creme)</li>
-      <li>Akzentfarbe: #8FAF9A (Pistaziengrün)</li>
-    </ul>
-  </section>
+    <section class="quality">
+        <h2>Unsere Qualität</h2>
+        <div class="quality-grid">
+            <div class="quality-item">
+                <span>🌾</span>
+                <h4>Hochwertige Zutaten</h4>
+                <p>Nur das Beste für unsere Cookies</p>
+            </div>
+            <div class="quality-item">
+                <span>👐</span>
+                <h4>Handgemacht</h4>
+                <p>Jeder Cookie mit Liebe gebacken</p>
+            </div>
+            <div class="quality-item">
+                <span>📦</span>
+                <h4>Frisch versendet</h4>
+                <p>Deutschlandweite Lieferung</p>
+            </div>
+            <div class="quality-item">
+                <span>🌿</span>
+                <h4>Vegane Optionen</h4>
+                <p>Auch pflanzlich genießbar</p>
+            </div>
+        </div>
+    </section>
 
-  <footer>
-    <p>Dies ist ein Prüfungsprojekt im Rahmen der Kurse WBS / 42 Berlin · 2026</p>
-  </footer>
+    <section id="contact" class="contact">
+        <h2>Kontakt</h2>
+        <p>Wir freuen uns auf deine Nachricht!</p>
+        <div class="contact-info">
+            <div class="contact-item">
+                <span>🛒</span>
+                <h4>Bestellungen</h4>
+                <a href="mailto:vertrieb@makao.de">vertrieb@makao.de</a>
+            </div>
+            <div class="contact-item">
+                <span>💬</span>
+                <h4>Service</h4>
+                <a href="mailto:service@makao.de">service@makao.de</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>🍪 MAKAO CONFISERIE</p>
+        <p>&copy; 2026 Makao Confiserie. Alle Rechte vorbehalten.</p>
+    </footer>
 </body>
 </html>
