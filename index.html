@@ -2,96 +2,151 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Makao Confiserie – Projektübersicht</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Makao Confiserie – Marktanalyse</title>
   <style>
     body {
-      font-family: sans-serif;
       margin: 0;
-      padding: 0;
-      background-color: #F3EBDD;
-      color: #2e2e2e;
+      font-family: 'Georgia', serif;
+      background-color: #F4EFEA;
+      color: #4B2E2B;
     }
+
     header {
       background-color: #4B2E2B;
       color: white;
-      padding: 2rem;
       text-align: center;
+      padding: 2rem 1rem;
     }
-    section {
-      padding: 2rem;
-      max-width: 800px;
+
+    header img {
+      height: 100px;
+      margin-bottom: 0.5rem;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    main {
+      max-width: 960px;
       margin: auto;
+      padding: 2rem 1.5rem;
+      line-height: 1.6;
     }
-    h2 {
-      color: #4B2E2B;
-    }
-    .accent {
-      color: #8FAF9A;
-    }
+
     table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 1rem;
+      margin-top: 1.5rem;
+      margin-bottom: 2rem;
     }
+
     th, td {
-      border: 1px solid #ccc;
-      padding: 0.5rem;
+      border: 1px solid #D8C9B3;
+      padding: 0.75rem;
       text-align: left;
     }
+
+    th {
+      background-color: #E8DCCC;
+    }
+
     footer {
+      background-color: #F3EBDD;
       text-align: center;
-      padding: 2rem;
+      color: #4B2E2B;
       font-size: 0.9rem;
-      background-color: #f5f5f5;
+      padding: 1rem;
+      border-top: 1px solid #D8C9B3;
+    }
+
+    nav {
+      background-color: #8FAF9A;
+      display: flex;
+      justify-content: center;
+      padding: 0.8rem;
+      gap: 2rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
+
   <header>
-    <h1>Makao Confiserie – Projektübersicht</h1>
-    <p>Bausteinprüfung 2026 · WBS / 42 Berlin</p>
+    <img src="logo.png" alt="Makao Confiserie Logo" />
+    <h1>Marktanalyse – Premium-Cookies</h1>
+    <p>Stand: Januar 2026</p>
   </header>
 
-  <section>
-    <h2>Projektbeschreibung</h2>
-    <p>Makao Confiserie ist ein fiktives Premium-Cookie-Startup, entwickelt im Rahmen der Bausteinprüfung „KI-Anwendungsfelder“. Der Fokus liegt auf einem Classic Cookie im Geschenkformat, vertrieben über einen deutschen Online-Shop. Ziel des Projekts ist es, Design-Assets, Marktanalyse, ein Formularsystem und Werbemittel KI-gestützt zu erstellen.</p>
+  <nav>
+    <a href="index.html">Startseite</a>
+    <a href="projektplanung.html">Projektplanung</a>
+    <a href="n8n-formular.html">Workflow</a>
+    <a href="assets.html">Design</a>
+  </nav>
 
-    <h2>Projektplanung</h2>
+  <main>
+    <h2>Überblick</h2>
+    <p>
+      Der Premium-Cookie-Markt in Deutschland entwickelt sich dynamisch im Online-Direktvertrieb (D2C). Besonders gefragt sind Geschenkformate, hochwertiger Look, frische Zutaten und ein emotionales Storytelling. 
+      Die typische Preisstruktur liegt bei etwa 4 € pro Cookie oder 25 € für 6er-Boxen.
+    </p>
+
+    <h2>Vergleich ausgewählter Anbieter</h2>
     <table>
       <tr>
-        <th>Aufgabe</th>
-        <th>Deadline</th>
-        <th>Status</th>
+        <th>Marke</th>
+        <th>Besonderheiten</th>
+        <th>Preisbereich</th>
       </tr>
-      <tr><td>Marktanalyse (3 Wettbewerber)</td><td>31.01.2026</td><td>✔ abgeschlossen</td></tr>
-      <tr><td>Farbkonzept definieren</td><td>02.02.2026</td><td>🕒 geplant</td></tr>
-      <tr><td>Logo-Entwurf V1</td><td>04.02.2026</td><td>🕒 geplant</td></tr>
-      <tr><td>Werbebild V1</td><td>06.02.2026</td><td>🕒 geplant</td></tr>
-      <tr><td>Werbevideo V1</td><td>07.02.2026</td><td>🕒 geplant</td></tr>
-      <tr><td>n8n Anfrageformular (Konzept)</td><td>08.02.2026</td><td>🕒 geplant</td></tr>
-      <tr><td>n8n Workflow (Umsetzung)</td><td>08.02.2026</td><td>🕒 geplant</td></tr>
-      <tr><td>Interner Feinschliff</td><td>08.02.2026</td><td>🕒 geplant</td></tr>
+      <tr>
+        <td>Deichkeks</td>
+        <td>100 % vegan, Mix-Boxen, Hochzeitscookies</td>
+        <td>4,40 € – 25,90 €</td>
+      </tr>
+      <tr>
+        <td>OOH! Cookies</td>
+        <td>Berliner Café, Specials, Catering</td>
+        <td>4,20 € – 4,90 € / Cookie</td>
+      </tr>
+      <tr>
+        <td>MELT Cookies</td>
+        <td>Signature-Mix, Online-Fokus, Ladeneröffnung geplant</td>
+        <td>12 € – 22 € / Box</td>
+      </tr>
+      <tr>
+        <td>Knusperreich</td>
+        <td>Bio-zertifiziert, Sortenvielfalt, Geschenk-Dosen</td>
+        <td>13,90 € – 15,10 € / Dose</td>
+      </tr>
+      <tr>
+        <td>Cookie Chunkie</td>
+        <td>Softbaked, Abo-Boxen, Sondereditionen</td>
+        <td>3,30 € – 10 € / Cookie</td>
+      </tr>
     </table>
 
-    <h2>Wettbewerbsvergleich</h2>
-    <table>
-      <tr><th>Anbieter</th><th>Vertriebskanäle</th><th>Produktkategorien</th><th>Preisspanne</th></tr>
-      <tr><td>Deichkeks</td><td>D2C Online-Shop</td><td>Cookies, Geschenkboxen</td><td>ab 4,40 € / 6er Box: 25,90 €</td></tr>
-      <tr><td>Knusperreich</td><td>D2C Online-Shop</td><td>Bio-Cookies, Auswahlboxen</td><td>6er Dose: 13,90–15,10 €</td></tr>
-      <tr><td>MELT Cookies</td><td>D2C Online-Shop</td><td>Mix-Boxen, wechselnde Sorten</td><td>3er: 12,00 € / 6er: 22,00 €</td></tr>
-    </table>
-
-    <h2 class="accent">CI-Farben</h2>
-    <ul>
-      <li>Primärfarbe: #4B2E2B (Kakao-Braun)</li>
-      <li>Sekundärfarbe: #F3EBDD (Creme)</li>
-      <li>Akzentfarbe: #8FAF9A (Pistaziengrün)</li>
-    </ul>
-  </section>
+    <h2>Fazit</h2>
+    <p>
+      Makao positioniert sich in einem etablierten, aber differenzierbaren Segment. Eine hochwertige Präsentation, Geschenkboxen und handwerklicher Anspruch sind Voraussetzung, um in diesem Umfeld zu bestehen.
+    </p>
+  </main>
 
   <footer>
-    <p>Dies ist ein Prüfungsprojekt im Rahmen der Kurse WBS / 42 Berlin · 2026</p>
+    &copy; 2026 Makao Confiserie · Marktanalyse Premium-Cookies
   </footer>
+
 </body>
 </html>
+
